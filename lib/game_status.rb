@@ -15,7 +15,7 @@ WIN_COMBINATIONS = [
     [2,4,6]
 ]
 
-# checks to see if there is a winner
+# checks board to see if there is a winner
 def won?(board)
 
     WIN_COMBINATIONS.each do |win_combination|
@@ -35,4 +35,13 @@ def won?(board)
             false
         end
     end
+
+    if board.all? do |number|
+        counter = 0
+        position_taken?(board, counter)
+        counter += 1
+    end
+    return false
+
+        
 end
