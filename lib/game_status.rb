@@ -27,7 +27,7 @@ def won?(board)
 
     elsif board.none? do |index|
         counter = 0
-        position_taken?(board, counter)
+        !position_taken?(board, counter)
         counter += 1
         end
         return false
