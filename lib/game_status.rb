@@ -17,21 +17,35 @@ WIN_COMBINATIONS = [
 
 # checks to see if there is a winner
 def won?(board)
-    WIN_COMBINATIONS.each do |win_combination|
-        win_index_1 = win_combination[0]
-        win_index_2 = win_combination[1]
-        win_index_3 = win_combination[2]
 
-        position_1 = board[win_index_1]
-        position_2 = board[win_index_2]
-        position_3 = board[win_index_3]
+    if board.all? do |index|
+        counter = 0
+        index.position_taken?(board, counter)
+        counter += 1
+        return false
 
-        if position_1 == "X" && position_2 == "X" && position_3 == "X"
-            return win_combination
-        elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-            return win_combination
-        else
-            false
+    elsif board.none? do |index|
+        counter = 0
+        index.position_taken?(board, counter)
+        counter += 1
+        return false
+
+    else
+        WIN_COMBINATIONS.each do |win_combination|
+            win_index_1 = win_combination[0]
+            win_index_2 = win_combination[1]
+            win_index_3 = win_combination[2]
+
+            position_1 = board[win_index_1]
+            position_2 = board[win_index_2]
+            position_3 = board[win_index_3]
+
+            if position_1 == "X" && position_2 == "X" && position_3 == "X"
+                return win_combination
+            elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+                return win_combination
+            else
+                false
         end
     end
 end
