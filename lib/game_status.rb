@@ -49,7 +49,8 @@ def won?(board)
             else
                 false
             end
-        return win_combination
         end
     end
 end
+
+won?([0,1,3])
