@@ -15,6 +15,7 @@ WIN_COMBINATIONS = [
     [2,4,6]
 ]
 
+# checks to see if there is a winner
 def won?(board)
 
 end
