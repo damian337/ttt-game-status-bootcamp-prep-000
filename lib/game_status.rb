@@ -40,8 +40,12 @@ def won?(board)
         counter = 0
         position_taken?(board, counter)
         counter += 1
-    end
-    return false
-
-        
+        end
+    elsif board.none? do |number|
+        counter = 0
+        position_taken?(board, counter)
+        counter += 1
+        end
+    else
+        false
 end
