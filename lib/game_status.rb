@@ -18,23 +18,21 @@ WIN_COMBINATIONS = [
 # checks to see if there is a winner
 def won?(board)
 
-    if board.all? do |index|
-        counter = 0
-        position_taken?(board, counter)
-        counter += 1
-        end
-        return false
+    WIN_COMBINATIONS.each do |win_combination|
+        win_index_1 = win_combination[0]
+        win_index_2 = win_combination[1]
+        win_index_3 = win_combination[2]
 
-    elsif board.none? do |index|
-        counter = 0
-        !position_taken?(board, counter)
-        counter += 1
-        end
-        return false
+        position_1 = board[win_index_1]
+        position_2 = board[win_index_2]
+        position_3 = board[win_index_3]
 
-    else
-        true
+        if position_1 == "X" && position_2 == "X" && position_3 == "X"
+            return win_combination
+        elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+            return win_combination
+        else
+            false
+        end
     end
 end
-
-puts won?(["X", "X", "X", " "])
