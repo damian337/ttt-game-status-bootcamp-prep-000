@@ -22,12 +22,14 @@ def won?(board)
         counter = 0
         index.position_taken?(board, counter)
         counter += 1
+        end
         return false
 
     elsif board.none? do |index|
         counter = 0
         index.position_taken?(board, counter)
         counter += 1
+        end
         return false
 
     else
