@@ -37,4 +37,4 @@ def won?(board)
     end
 end
 
-puts won?([0,1,3])
+puts won?([0,1,2])
